@@ -3,8 +3,8 @@ import asyncio
 from datetime import date
 from typing import Dict, List, Union
 
-from AviaxMusic import userbot
-from AviaxMusic.core.mongo import mongodb
+from AnonMusic import userbot
+from AnonMusic.core.mongo import mongodb
 
 authdb = mongodb.adminauth
 authuserdb = mongodb.authuser
@@ -25,6 +25,27 @@ playtypedb = mongodb.playtypedb
 skipdb = mongodb.skipmode
 sudoersdb = mongodb.sudoers
 usersdb = mongodb.tgusersdb
+
+
+"""
+authdb = mongodb.adminauth
+authuserdb = mongodb.authuser
+autoenddb = mongodb.autoend
+assdb = mongodb.assistants
+blacklist_chatdb = mongodb.blacklistChat
+blockeddb = mongodb.blockedusers
+chatsdb = mongodb.chats
+channeldb = mongodb.cplaymode
+countdb = mongodb.upcount
+gbansdb = mongodb.gban
+langdb = mongodb.language
+onoffdb = mongodb.onoffper
+playmodedb = mongodb.playmode
+playtypedb = mongodb.playtypedb
+skipdb = mongodb.skipmode
+sudoersdb = mongodb.sudoers
+usersdb = mongodb.tgusersdb
+"""
 
 # Shifting to memory [mongo sucks often]
 active = []
@@ -72,7 +93,7 @@ async def set_assistant_new(chat_id, number):
 
 
 async def set_assistant(chat_id):
-    from AviaxMusic.core.userbot import assistants
+    from AnonMusic.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -86,7 +107,7 @@ async def set_assistant(chat_id):
 
 
 async def get_assistant(chat_id: int) -> str:
-    from AviaxMusic.core.userbot import assistants
+    from AnonMusic.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
@@ -113,7 +134,7 @@ async def get_assistant(chat_id: int) -> str:
 
 
 async def set_calls_assistant(chat_id):
-    from AviaxMusic.core.userbot import assistants
+    from AnonMusic.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -126,7 +147,7 @@ async def set_calls_assistant(chat_id):
 
 
 async def group_assistant(self, chat_id: int) -> int:
-    from AviaxMusic.core.userbot import assistants
+    from AnonMusic.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
